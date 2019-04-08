@@ -1,0 +1,7 @@
+ami_id="ami-08a3d44e137d6c66d"
+aws_region="eu-central-1"
+cluster_name="consul-cluster"
+public_key_name="ec2-consul-key"
+public_key_value="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/rQyA87gXqUVxl4iSEWiHCszg+XcOfONd1fFg3toLjsGPurGgeUC25qKvORyCJncwr6Jk/TCllnHMLMBCH9+rrZWDxK3yYHnnf990WzGS9t+6+10S1mqQ2ZuGHa9e5CfZ/7FYtPnmDXUMjWkK8MhLUEYe3pSFzoVTi6nxoHFNTxV30+zt3kll2Zw8qf/Ft044y1b0hU8/V+aEQMjaSP00+tcjyXQDS+Y797CMxDrEe5tnbji+QqHnu+X3OK8n3Jcd6DfK3LVvOuWWUt7chJDPswuiYUS7Ky8iJa9CGTiwZQwCGcuG6SXl77tJATgqUwsQWJkaDLgkRaumXDI3T9gb email@example.com"
+num_servers=3
+num_clients=0

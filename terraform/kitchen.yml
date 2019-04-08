@@ -1,0 +1,26 @@
+driver:
+  name: terraform
+  variable_files:
+    - testing.tfvars
+
+provisioner:
+  name: terraform
+
+platforms:
+  - name: amazon2
+
+verifier:
+  name: terraform
+  format: doc
+  systems:
+    - name: default
+      backend: ssh
+      controls:
+      - operating_system
+      user: ec2-user
+      hosts: <%= `./scripts/get-cluster-info.sh iponly` %>
+      key_files:
+      - test/ec2_testing.key
+
+suites:
+  - name: default

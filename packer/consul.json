@@ -1,0 +1,44 @@
+{
+  "min_packer_version": "0.12.0",
+  "variables": {
+    "aws_region": "eu-central-1",
+    "terraform-aws-consul_version": "v0.6.0",
+    "consul_version": "1.4.4"
+  },
+  "builders": [{
+    "name": "amazon-linux-2-ami",
+    "ami_name": "consul-amazon-linux-2-{{isotime | clean_ami_name}}-{{uuid}}",
+    "ami_description": "An Amazon Linux 2 AMI that has Consul installed.",
+    "instance_type": "t2.micro",
+    "region": "{{user `aws_region`}}",
+    "type": "amazon-ebs",
+    "source_ami_filter": {
+      "filters": {
+        "virtualization-type": "hvm",
+        "architecture": "x86_64",
+        "name": "*amzn2-ami-hvm-*",
+        "block-device-mapping.volume-type": "gp2",
+        "root-device-type": "ebs"
+      },
+      "owners": ["amazon"],
+      "most_recent": true
+    },
+    "ssh_username": "ec2-user"
+  }],
+  "provisioners": [{
+    "type": "shell",
+    "inline": [
+      "sudo yum -y install git"
+    ],
+    "pause_before": "30s"
+  },{
+    "type": "shell",
+    "inline": [
+      "sudo yum -y install git",
+      "git clone --branch {{user `terraform-aws-consul_version`}} https://github.com/hashicorp/terraform-aws-consul.git /tmp/terraform-aws-consul",
+      "/tmp/terraform-aws-consul/modules/install-consul/install-consul --version {{user `consul_version`}}",
+      "/tmp/terraform-aws-consul/modules/install-dnsmasq/install-dnsmasq"
+    ],
+    "pause_before": "5s"
+  }]
+}

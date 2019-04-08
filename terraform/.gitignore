@@ -1,0 +1,5 @@
+.terraform
+terraform.tfstate*
+.kitchen
+*.lock
+*.lock.info
