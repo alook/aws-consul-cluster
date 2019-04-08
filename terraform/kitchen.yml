@@ -15,8 +15,6 @@ verifier:
   systems:
     - name: default
       backend: ssh
-      controls:
-      - operating_system
       user: ec2-user
       hosts: <%= `./scripts/get-cluster-info.sh iponly` %>
       key_files:
