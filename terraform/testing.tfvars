@@ -1,4 +1,4 @@
-ami_id="ami-08a3d44e137d6c66d"
+ami_id="ami-0cf32f2ab1438ffc4"
 aws_region="eu-central-1"
 cluster_name="consul-test-cluster"
 public_key_name="ec2-consul-key-testing"
