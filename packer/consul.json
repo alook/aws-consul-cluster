@@ -34,7 +34,6 @@
   },{
     "type": "shell",
     "inline": [
-      "sudo yum -y install git",
       "git clone --branch {{user `terraform-aws-consul_version`}} https://github.com/hashicorp/terraform-aws-consul.git /tmp/terraform-aws-consul",
       "/tmp/terraform-aws-consul/modules/install-consul/install-consul --version {{user `consul_version`}}",
       "/tmp/terraform-aws-consul/modules/install-dnsmasq/install-dnsmasq"
